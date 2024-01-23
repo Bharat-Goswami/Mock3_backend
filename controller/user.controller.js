@@ -33,7 +33,7 @@ userController.post("/signup", async (req, res) => {
 userController.post("/login", async (req, res) => {
   const { name, email, password } = req.body;
   const user = await UserModel.findOne({ email });
-
+  
   const hashed_password = user.password;
   try {
     bcrypt.compare(password, hashed_password, async function (err, result) {
